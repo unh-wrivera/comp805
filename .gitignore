@@ -84,7 +84,7 @@ celerybeat-schedule
 
 # virtualenv
 .venv
-venv/
+venvs/
 ENV/
 
 # Spyder project settings
@@ -99,3 +99,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# Prion Analysis Work
+python/primcop/

@@ -24,7 +24,7 @@ def give_me_an_integer():
     """
     This function returns an integer value
     """
-    x =5
+    x = 5
     return x
 
 def give_me_a_boolean():
@@ -52,7 +52,7 @@ def give_me_a_dictionary():
     """
     This function returns a dictionary
     """
-    pokedex = {001:'Bulbasaur', 151:'Mew'}
+    pokedex = {1:'Bulbasaur', 151:'Mew'}
     return pokedex
 
 def give_me_a_tuple():
@@ -99,4 +99,3 @@ def check_is_less_than(number1, number2):
 
     else:
     	return False
-
