@@ -100,5 +100,5 @@ ENV/
 # mypy
 .mypy_cache/
 
-# Prion Analysis Work
-python/primcop/
+# private files
+python/

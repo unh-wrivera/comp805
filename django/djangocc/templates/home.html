@@ -1,22 +1,12 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>uStudy</title>
-		<link rel='stylesheet' href="{% static 'css/style.css' %}"/>
-	</head>
-	<body>
-		<div id ="container">
-			<h1>Welcome to {{ our_greeting | title }}!</h1>
-			{% if weekday_list %}
-				<ul>
-				{% for day in weekday_list%}
-					<li>{{ day|slice:"3" }}</li>
-				{% endfor %}
-				</ul>
-			{% else %}
-				<p>Days of week is not defined.</p>
-			{% endif %}
-		</div>
-	</body>
-</html>	
+{% extends 'base.html' %}
+
+{% block content %}
+        <div class='homepage-content'>
+            <div class='homepage-banner'>
+                <h1>uStudy</h1>
+                <hr>
+                <h4>Harness the Power of U!</h4>
+                <a class='button' href="">Get Started</a>
+            </div>
+        </div>
+{% endblock %}
