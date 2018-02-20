@@ -11,14 +11,14 @@ class Resume(models.Model):
         Params: self
         Returns a user's entire name; first name first,  last name last
         """
-        return "Name (First, Last): {} {}".format(self.first_name, self.last_name)
+        return "{} {}".format(self.first_name, self.last_name)
 
     def get_last_name_first_name(self):
         """
         Params: self
         Returns a user's entire name; last name first,  first name last
         """
-        return "Name (Last, First): {} {}".format(self.last_name, self.first_name)
+        return "{} {}".format(self.last_name, self.first_name)
     def get_experience(self):
         """
         Params: self
