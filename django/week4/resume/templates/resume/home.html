@@ -5,7 +5,7 @@
       {% if resume %}
       <h2>Experience</h2>
         <ul>
-          {% for exp_item in user_resume.get_experience %}
+          {% for exp_item in resume.get_experience %}
             <li>Title: {{exp_item.title}}</li>
             <li>Location: {{exp_item.location}}</li>
             <li>Start Date: {{exp_item.start_date}}</li>
@@ -15,7 +15,7 @@
         </ul>
         <h2>Education</h2>
         <ul>
-          {% for educ_item in user_resume.get_education %}
+          {% for educ_item in resume.get_education %}
             <li>Institution Name:{{educ_item.institution_name}}</li>
             <li>Location: {{educ_item.location}}</li>
             <li>Degree(s): {{educ_item.degree}}</li>
