@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+      {% if experience and education %}
+      <h2>Experience</h2>
+        <ul>
+          {% for exp_item in experience %}
+            <li>Title: {{exp_item.title}}</li>
+            <li>Location: {{exp_item.location}}</li>
+            <li>Start Date: {{exp_item.start_date}}</li>
+            <li>End Date: {{exp_item.end_date}}</li>
+            <li>Description: {{exp_item.description}}</li>
+          {% endfor %}
+        </ul>
+        <h2>Education</h2>
+        <ul>
+          {% for educ_item in education %}
+            <li>Institution Name:{{educ_item.institution_name}}</li>
+            <li>Location: {{educ_item.location}}</li>
+            <li>Degree(s): {{educ_item.degree}}</li>
+            <li>Major(s): {{educ_item.major}}</li>
+            <li>Cumulative GPA: {{educ_item.gpa}}</li>
+          {% endfor %}
+        </ul>
+
+      {% else %}
+        <h3>No resume information found!</h3>
+      {% endif %}
+
+{% endblock %}
