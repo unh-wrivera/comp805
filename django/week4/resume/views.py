@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from .models import Experience, Education
+from .models import Experience, Education, Resume
 
 # Create your views here.
 def home(request):
     '''
     Renders the Resume app home template.
+    Returns resume/home.html
     '''
-    qs1 = Experience.objects.all()
-    qs2 = Education.objects.all()
-    context = {'experience': qs1, 'education':qs2}
+    user_resume = Resume.objects.first()
+    context = {'resume':user_resume}
     return render(request, 'resume/home.html', context)

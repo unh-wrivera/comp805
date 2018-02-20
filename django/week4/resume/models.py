@@ -6,29 +6,29 @@ class Resume(models.Model):
     first_name = models.CharField(max_length=64, null=False, blank=False)
     last_name = models.CharField(max_length=64, null=False, blank=False)
 
-    def get_full_name():
+    def get_full_name(self):
         """
         Returns a user's entire name; first name first,  last name last
         """
         full_name = first_name + ' ' + last_name
-        return full_name
-    def get_last_name_first_name():
+        return self.full_name
+    def get_last_name_first_name(self):
         """
         Returns a user's entire name; last name first,  first name last
         """
         reverse_name = last_name + ' ' + first_name
-        return reverse_name
+        return self.reverse_name
 
-    def get_experience():
+    def get_experience(self):
         """
         Returns a user's set of experiences to build a resume
         """
-        return Experience.resume
-    def get_education():
+        return self.experience_set.all()
+    def get_education(self):
         """
         Returns a user's set of education information to build a resume
         """
-        return Education.resume
+        return self.education_set.all()
 
 
 class Experience(models.Model):
