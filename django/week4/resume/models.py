@@ -10,20 +10,20 @@ class Resume(models.Model):
         """
         Returns a user's entire name; first name first,  last name last
         """
-        full_name = first_name + ' ' + last_name
-        return self.full_name
+        return "Name (First, Last): {} {}".format(self.first_name, self.last_name)
+
     def get_last_name_first_name(self):
         """
         Returns a user's entire name; last name first,  first name last
         """
         reverse_name = last_name + ' ' + first_name
-        return self.reverse_name
-
+        return "Name (Last, First): {} {}".format(self.last_name, self.first_name)
     def get_experience(self):
         """
         Returns a user's set of experiences to build a resume
         """
         return self.experience_set.all()
+
     def get_education(self):
         """
         Returns a user's set of education information to build a resume
