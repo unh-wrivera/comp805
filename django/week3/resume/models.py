@@ -21,3 +21,22 @@ class Education(models.Model):
 
 #    def __str__(self):
 #        return self.institution_name
+
+class Resume(models.Model):
+    resExperience = models.ForeignKey(Experience, on_delete=models.CASCADE)
+    resEducation= models.ForeignKey(Education, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=64, null=False, blank=False)
+    last_name = models.CharField(max_length=64, null=False, blank=False)
+
+    def get_full_name():
+        full_name = first_name + ' ' + last_name
+        return full_name
+    def get_last_name_first_name():
+        reverse_name = last_name + ' ' + first_name
+        return reverse_name
+
+    def get_experience():
+        return resExperience
+
+    def get_education():
+        return resEducation

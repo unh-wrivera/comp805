@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from resume.models import Experience, Education 
 def home(request):
     """
     Renders home page.
@@ -11,8 +11,10 @@ def resume(request):
     """
     Renders resume page.
     """
-    context ={ }
-    return render(request, 'resume.html', context = None)
+    qs1 = Experience.objects.all()
+    qs2 = Education.objects.all()
+    context = {'experience': qs1, 'education':qs2}
+    return render(request, 'resume/home.html', context)
 
 def portfolio(request):
     """
