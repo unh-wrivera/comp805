@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head id="header">
+	<title>Lab 6</title>
+
+	<style>
+		li {
+			list-style: none;
+		}
+
+		.centered {
+			text-align: center;
+		}
+
+		.problem {
+			text-size: 1.5em;
+			font-weight: 700;
+			padding: 10px 20px;
+		}
+
+	</style>
+
+</head>
+
+<body>
+	<div class="header centered">
+		<h1>Welcome To Lab 6</h1>
+		<p><small>It's good to see you again, you like nice today.</small></p>
+
+		<h3>Instructions</h3>
+		<p>Read, and then do. It's that simple.</p>
+		<p>Add to workspace/labs/week6 and push to git. You get me?</p>
+	</div>
+
+	<div id="prob1">
+		<p class='problem'>1. When I click the button below, it should change from "click me!" to "I was clicked!"</p>
+		<button id ="button1" onclick="change_button_text()">Click Me!</button>
+	</div>
+
+	<script>
+	function change_button_text(){
+		document.getElementById('button1').innerHTML = "I was clicked!";
+	}
+	</script>
+
+
+	<div id="prob2">
+		<p class='problem'>2. There are two buttons below. When a button is clicked, the other
+			 bottom should appear and the button that was clicked should disappear.</p>
+		<button id = "buttona" onclick="swap_places1()">Button A: Show B</button>
+		<button id = "buttonb" onclick="swap_places2()">Button B: Show A</button>
+	</div>
+
+
+	<script>
+	function swap_places1(){
+			document.getElementById('buttona').style.display = "none";
+			document.getElementById('buttonb').style.display = "block";
+	} 
+	function swap_places2(){
+			document.getElementById('buttonb').style.display = "none";
+			document.getElementById('buttona').style.display = "block"; 
+		}
+	</script>
+
+
+	<div id="prob3">
+		<p class='problem'>3. My favorite color is is pink. When I click the button below. I want
+			this header to change to my favorite color</p>
+		<button id = "button3" onclick='change_color()'>Pink Is My Favorite Color</button>
+	</div>
+
+	<script>
+	function change_color(){
+		document.getElementById("prob3").style.color = "pink";
+	} 
+	</script>
+
+
+	<div id="prob4">
+		<p class='problem'>4. I like to say hi to people. There is an unorded list below and a button. When I click the button,
+			I want another list item to appear greeting a new person.</p>
+		<button id = 'button4' onclick='say_hello()'>Say Hi!</button>
+		<ul id = 'greetinglist'>
+		</ul>
+	</div>
+
+	<script>
+	var nameArray = ['Jon', 'Mihaela', 'Abner', 'Bruce', 'Carroll']
+	var name = nameArray[Math.floor(Math.random()*nameArray.length)];
+	function say_hello(){
+		var new_elem = document.createElement('li');
+		var greeting = 'Hello ';
+		var exclam = '!'
+		var full_greeting = greeting.concat(name, exclam)
+		var textnode =document.createTextNode(full_greeting);
+		new_elem.appendChild(textnode);
+		document.getElementById('greetinglist').appendChild(new_elem);
+		name = nameArray[Math.floor(Math.random()*nameArray.length)];	
+	}
+	</script>
+
+
+	<div id="prob5">
+		<p class='problem'>5. I like to browse the web. But I'm a nerd, and only use the console.
+			There is a text box and button below. I want to put a url into the text box, click the button, and see the response in the console.</p>
+		<input type="text" id ='url'>
+		<button onclick='go_fetch()'>Fetch!</button>
+	</div>
+
+<script>
+function go_fetch(){
+	var url = document.getElementById('url').value;
+	fetch(url).then(function(response){
+		return response.json();
+	}).then(function(response){ 
+		console.log(response);
+	})
+}
+</script>
+
+
+<!-- Running the above script produces the following CORS errors.
+Failed to load https://www.google.com/: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'null' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+lab6_javascript.html:1 Uncaught (in promise) TypeError: Failed to fetch
+ -->
+
+
+
+	<div id="prob6">
+		<p class='problem'>6. I like my data like I like my news...fake. Fill the empty ul below with some fake data from https://jsonplaceholder.typicode.com/ when I click the fetch button.</p>
+		<button onclick='fetch_fake_data()'>Fetch!</button>
+		<ul id='fake_data'></ul>
+	</div>
+
+<script>
+function fetch_fake_data(){
+	var fake_url = 'https://jsonplaceholder.typicode.com/comments/'
+   fetch(fake_url)
+  .then(response => response.json())
+  .then(json => compile_fake_data(json));
+}
+function compile_fake_data(json){
+	console.log(json)
+	json.forEach(function(element) {
+	var fake_data = document.getElementById('fake_data');
+    var li = document.createElement('li');
+    li.appendChild(document.createTextNode(JSON.stringify(element, ['postId','id','name', 'email', 'body'])));
+    fake_data.appendChild(li);
+	});
+}
+
+</script>
+
+<script>
+	alert('Have fun! Submit by placing your finished file in workspace/labs/week6 and push to git. Collaborate via slack.');
+</script>
+
+</body>
+
+</html>
+
+
