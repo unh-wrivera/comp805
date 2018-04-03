@@ -23,8 +23,8 @@ class Education(models.Model):
 #        return self.institution_name
 
 class Resume(models.Model):
-    resExperience = models.ForeignKey(Experience, on_delete=models.CASCADE)
-    resEducation= models.ForeignKey(Education, on_delete=models.CASCADE)
+    resExperience = models.ForeignKey(Experience, on_delete=models.CASCADE, default=1)
+    resEducation= models.ForeignKey(Education, on_delete=models.CASCADE, default=1)
     first_name = models.CharField(max_length=64, null=False, blank=False)
     last_name = models.CharField(max_length=64, null=False, blank=False)
 
